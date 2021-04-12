@@ -1,9 +1,9 @@
 const {extract} = require('./src/main');
 
 
-const run = async (url) => {
+const run = async (url, params) => {
   try {
-    const art = await extract(url);
+    const art = await extract(url, params);
     console.log(art);
   } catch (err) {
     console.trace(err);
@@ -11,9 +11,15 @@ const run = async (url) => {
 };
 
 const init = (argv) => {
-  if (argv.length === 3) {
+  if (argv.length >= 3) {
     const url = argv[2];
-    return run(url);
+    const [ , , , ...paramsArr] = argv
+    let paramsObj = {}
+    paramsArr.forEach((param) => {
+      param = param.split('=')
+      paramsObj[param[0]] = param[1]
+    })
+    return run(url, paramsObj);
   }
   return 'Nothing to do!';
 };

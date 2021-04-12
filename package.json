@@ -23,6 +23,7 @@
     "reset": "node reset"
   },
   "dependencies": {
+    "https-proxy-agent": "^5.0.0",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {

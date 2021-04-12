@@ -30,8 +30,13 @@ const setProviderList = (list) => {
   providers = providersFromList(list);
 };
 
+const getProvider = (url) => {
+  return findProvider(url, providers);
+}
+
 module.exports = {
   extract,
   hasProvider,
+  getProvider,
   setProviderList,
 };
