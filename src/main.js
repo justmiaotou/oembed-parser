@@ -34,9 +34,12 @@ const getProvider = (url) => {
   return findProvider(url, providers);
 }
 
+const getDefaultProviderList = () => defaultProviderList
+
 module.exports = {
   extract,
   hasProvider,
   getProvider,
+  getDefaultProviderList,
   setProviderList,
 };
